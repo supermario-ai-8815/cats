@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Котики - молодцы</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+<h1>Добро пожаловать в мир котиков!</h1>
+            <p class="subtitle">Здесь живут самые милые и пушистые создания</p>
+        </header>
+        
+        <main>
+            <div class="cat-section">
+                <div class="cat-card">
+                    <img src="https://steamuserimages-a.akamaihd.net/ugc/1806529912255160538/5F20B565707FF4F5E5F6E0E5E4C47A297B08161D/?imw=512&amp;imh=341&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true" alt="Милый котик" class="cat-image">
+                    <div class="cat-info">
+                        <h2 class="cat-name">Барсик</h2>
+                        <p class="cat-description">Очень игривый и ласковый котик. Обожает спать на солнышке и играть с мячиком.</p>
+                        <div class="cat-features">
+                            <div class="feature">
+                                <div class="feature-value">3</div>
+                                <div class="feature-name">года</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-value">4.5</div>
+                                <div class="feature-name">кг</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-value">9</div>
+                                <div class="feature-name">жизней</div>
+                            </div>
+                        </div>
+                        <button class="btn">Погладить котика</button>
+                    </div>
+                </div>
+                
+                <div class="cat-card">
+                    <img src="https://i.ytimg.com/vi/vPPx29Co0vk/maxresdefault.jpg" alt="Ещё один милый котик" class="cat-image">
+                    <div class="cat-info">
+                        <h2 class="cat-name">Мурка</h2>
+                        <p class="cat-description">Нежная и грациозная кошечка. Любит смотреть в окно и мурлыкать песенки.</p>
+                        <div class="cat-features">
+                            <div class="feature">
+                                <div class="feature-value">2</div>
+                                <div class="feature-name">года</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-value">3.8</div>
+                                <div class="feature-name">кг</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-value">9</div>
+                                <div class="feature-name">жизней</div>
+                            </div>
+                        </div>
+                        <button class="btn">Погладить котика</button>
+                    </div>
+                </div>
+                
+                <div class="cat-card">
+                    <img src="https://i.pinimg.com/736x/e6/9b/6f/e69b6feb89a524682cf149d527026893.jpg" alt="Третий милый котик" class="cat-image">
+                    <div class="cat-info">
+                        <h2 class="cat-name">Рыжик</h2>
+                        <p class="cat-description">Энергичный и весёлый кот. Обожает исследовать новые территории и гоняться за бабочками.</p>
+                        <div class="cat-features">
+                            <div class="feature">
+                                <div class="feature-value">4</div>
+                                <div class="feature-name">года</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-value">5.2</div>
+                                <div class="feature-name">кг</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-value">9</div>
+                                <div class="feature-name">жизней</div>
+                            </div>
+                        </div>
+                        <button class="btn">Погладить котика</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Сайт создан с любовью к котикам</p>
+<div class="counter">
+                Посетителей сегодня: 1 234
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для кнопок
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const catName = this.closest('.cat-card').querySelector('.cat-name').textContent;
+                alert(`Вы погладили ${catName}! Он мурлычет от удовольствия! Мурррр...`);
+            });
+        });
+        
+        // Меняем изображения котиков каждые 5 секунд (для демонстрации)
+        setInterval(() => {
+            document.querySelectorAll('.cat-image').forEach(img => {
+                const currentSrc = img.src;
+                const newSrc = currentSrc.includes('placekitten.com') ? 
+                    currentSrc.replace(/\d{3}\/\d{3}/, () => {
+                        const width = 400 + Math.floor(Math.random() * 5);
+                        const height = 300 + Math.floor(Math.random() * 5);
+                        return '$;{width}/${height}';
+                    }) : currentSrc;
+                img.src = newSrc;
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
